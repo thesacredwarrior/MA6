@@ -1,0 +1,33 @@
+version: '3.9'
+
+services:
+#  database:
+#    image: postgres
+#    restart: always
+#    environment:
+#      POSTGRES_USER: postgres
+#      POSTGRES_PASSWORD: password
+#      POSTGRES_DB: Kolmakov
+#    volumes:
+#      - ./pgdata:/var/lib/postgresql/data
+#    ports:
+#      - "5432:5432"
+
+
+  item_service:
+    restart: on-failure
+    container_name: item_service
+    build: item_service/
+    ports:
+      - "8000:80"
+#    depends_on:
+#      - database
+
+  shop_service:
+    restart: on-failure
+    container_name: shop_service
+    build: shop_service/
+    ports:
+      - "8001:80"
+#    depends_on:
+#      - database
