@@ -8,6 +8,7 @@ RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
 COPY ./app /code/app
 
+
 EXPOSE 80
 
 CMD ["python", "app/main.py"]
